@@ -99,10 +99,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: apache-ingress
-  namespace: default
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/server-alias: "apache.k8s-8.sa"
 spec:
+  ingressClassName: nginx
   rules:
   - host: apache.k8s-7.sa
     http:
