@@ -72,7 +72,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: argo-app.k8s-7.sa
+  - host: app.k8s-7.sa
     http:
       paths:
       - path: /
