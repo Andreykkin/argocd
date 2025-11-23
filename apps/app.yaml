@@ -10,7 +10,6 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: nfs-app
   resources:
     requests:
       storage: 1Gi
@@ -24,7 +23,6 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: nfs-client
   resources:
     requests:
       storage: 1Gi
@@ -49,7 +47,6 @@ kind: PersistentVolumeClaim
 metadata:
   name: task-pv-claim
 spec:
-  storageClassName: local-path
   accessModes:
     - ReadWriteMany
   resources:
