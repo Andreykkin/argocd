@@ -168,11 +168,11 @@ kind: Ingress
 metadata:
   name: ingress-sa
   annotations:
-    nginx.ingress.kubernetes.io/server-alias: "app.k8s-20.sa"
+    nginx.ingress.kubernetes.io/server-alias: "app.k8s-8.sa"
 spec:
   ingressClassName: nginx
   rules:
-    - host: app-argo.k8s-19.sa
+    - host: app-argo.k8s-7.sa
       http:
         paths:
           - path: /

@@ -10,8 +10,8 @@ spec:
   project: default
   source:
     path: ./apps
-    repoURL: https://github.com/pluhin/argo-flux-33-25.git
-    targetRevision: master
+    repoURL: https://github.com/Andreykkin/argocd.git
+    targetRevision: main
   syncPolicy:
     automated:
       enabled: true
