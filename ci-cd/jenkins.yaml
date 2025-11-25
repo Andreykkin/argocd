@@ -1,9 +1,14 @@
 ---
-
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: jenkins
+---
 apiVersion: v1
 kind: Secret
 metadata:
   name: jenkins-secret
+  namespace: jenkins
 type: Opaque
 data:
   password: amVua2lucy1wYXNzd29yZA==
@@ -12,6 +17,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: jenkins
+  namespace: jenkins
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -24,6 +30,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jenkins
+  namespace: jenkins
 spec:
   replicas: 1
   selector:
@@ -85,6 +92,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: jenkins-config
+  namespace: jenkins
 data:
   jenkins.yaml: |
         jenkins:
@@ -118,6 +126,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: basic-security
+  namespace: jenkins
 data:
   basic-security.groovy: |
     #!groovy
@@ -138,6 +147,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: jenkins
+  namespace: jenkins
 spec:
   ports:
     - name: master
@@ -153,6 +163,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-jenkins
+  namespace: jenkins
 spec:
   ingressClassName: nginx
   rules:
