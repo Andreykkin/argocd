@@ -25,6 +25,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: default
+  namespace: jenkins
 ---
 apiVersion: apps/v1
 kind: Deployment
